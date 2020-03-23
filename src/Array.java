@@ -1,10 +1,10 @@
-public class Array {
-    private int[] data;
+public class Array<E> {
+    private E[] data;
     private int size;
 
     // 构造函数，传入数组的容量capacity构造Array
     public Array(int capacity) {
-        data = new int[capacity];
+        data = (E[])new Object[capacity]; // java 8 泛型的写法
         size = 0;
     }
 
@@ -29,7 +29,7 @@ public class Array {
     }
 
     // 在 index 位置出 插入一个元素 e
-    public void add(int index, int e) {
+    public void add(int index, E e) {
         if (size == data.length) {
             throw new IllegalArgumentException("Add failed. Array is full.");
         }
@@ -45,16 +45,16 @@ public class Array {
         size++;
     }
 
-    public void addLast(int e) {
+    public void addLast(E e) {
         add(size, e);
     }
 
-    public void addFirst(int e) {
+    public void addFirst(E e) {
         add(0, e);
     }
 
     // 获取index索引位置的元素
-    public int get(int index) {
+    public E get(int index) {
         // 禁止访问没使用的空间
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Get failed. Index is illegal");
@@ -63,7 +63,7 @@ public class Array {
     }
 
     // 赋值函数
-    public void set(int index, int e) {
+    public void set(int index, E e) {
         // 禁止赋值没赋值的部分
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Set failed. Index is illegal");
@@ -72,9 +72,9 @@ public class Array {
     }
 
     // 查找数组中是否有元素 e
-    public boolean contain(int e) {
+    public boolean contains(E e) {
         for (int i = 0; i < size; i++) {
-            if (data[i] == e) {
+            if (data[i].equals(e)) {
                 return true;
             }
         }
@@ -83,9 +83,9 @@ public class Array {
 
 
     // 查找数组中元素 e, 找到了返回元素下标，否则返回 -1
-    public int find(int e) {
+    public int find(E e) {
         for (int i = 0; i < size; i++) {
-            if (data[i] == e) {
+            if (data[i].equals(e)) {
                 return i;
             }
         }
@@ -93,31 +93,32 @@ public class Array {
     }
 
     // 删除元素，并返回删除的元素
-    public int remove(int index) {
+    public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Remove failed. Index is illegal");
         }
 
-        int ret = data[index];
+        E ret = data[index];
         for (int i = index + 1; i < size; i++) {
             data[i - 1] = data[i];
         }
         size--;
+        data[size] = null; // 解除引用
         return ret;
     }
 
     // 删除数组的第一个元素
-    public int removeFirst() {
+    public E removeFirst() {
         return remove(0);
     }
 
     // 删除数组的最后一个元素
-    public int removeLast() {
+    public E removeLast() {
         return remove(size - 1);
     }
 
     // 从数组中删除元素e, 如果有同样的值，只删除第一个
-    public void removeElement(int e) {
+    public void removeElement(E e) {
         int index = find(e);
         if (index != -1) {
             remove(index);
