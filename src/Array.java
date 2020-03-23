@@ -108,7 +108,9 @@ public class Array<E> {
         data[size] = null; // 解除引用
 
         // 动态缩容
-        if (size == data.length / 2) {
+        // 采用懒惰策略： 当 size == capacity / 4 时，才将capacity减半
+        // 防止缩容为0
+        if (size == data.length / 4 && data.length / 2 != 0) {
             resize(data.length / 2);
         }
         return ret;

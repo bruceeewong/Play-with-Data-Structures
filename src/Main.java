@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
         Array<Integer> arr = new Array(); // 默认有10个元素
 
-        for (int i = 0; i < 11; i ++) {
+        for (int i = 0; i < 10; i ++) {
             arr.addLast(i);
         }
 
@@ -12,8 +12,12 @@ public class Main {
 
         // 缩容
         arr.removeFirst();
-        arr.removeFirst();
         System.out.println(arr);
 
+        arr.removeFirst();
+        arr.removeFirst();
+        arr.removeFirst();
+        arr.removeFirst();
+        System.out.println(arr);
     }
 }
