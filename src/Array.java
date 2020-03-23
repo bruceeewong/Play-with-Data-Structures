@@ -4,7 +4,7 @@ public class Array<E> {
 
     // 构造函数，传入数组的容量capacity构造Array
     public Array(int capacity) {
-        data = (E[])new Object[capacity]; // java 8 泛型的写法
+        data = (E[]) new Object[capacity]; // java 8 泛型的写法
         size = 0;
     }
 
@@ -30,11 +30,12 @@ public class Array<E> {
 
     // 在 index 位置出 插入一个元素 e
     public void add(int index, E e) {
-        if (size == data.length) {
-            throw new IllegalArgumentException("Add failed. Array is full.");
-        }
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed. Require index >=0 and index <= size");
+        }
+        if (size == data.length) {
+            // 动态扩容, 选择当前值的两倍
+            resize(2 * data.length);
         }
 
         for (int i = size - 1; i >= index; i--) {
@@ -93,6 +94,7 @@ public class Array<E> {
     }
 
     // 删除元素，并返回删除的元素
+    // 并动态缩容
     public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Remove failed. Index is illegal");
@@ -104,6 +106,11 @@ public class Array<E> {
         }
         size--;
         data[size] = null; // 解除引用
+
+        // 动态缩容
+        if (size == data.length / 2) {
+            resize(data.length / 2);
+        }
         return ret;
     }
 
@@ -139,5 +146,13 @@ public class Array<E> {
         }
         res.append(']');
         return res.toString();
+    }
+
+    private void resize(int newCapacity) {
+        E[] newData = (E[]) new Object[newCapacity]; // 扩容
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
     }
 }

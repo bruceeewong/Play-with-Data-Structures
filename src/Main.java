@@ -1,19 +1,19 @@
 public class Main {
     public static void main(String[] args) {
-        Array<Integer> arr = new Array(20);
+        Array<Integer> arr = new Array(); // 默认有10个元素
 
-        for (int i = 0; i < 10; i ++) {
+        for (int i = 0; i < 11; i ++) {
             arr.addLast(i);
         }
 
+        // 扩容
         arr.add(1, 100);
-        arr.addFirst(-1);
         System.out.println(arr);
 
-        arr.remove(2);
+        // 缩容
+        arr.removeFirst();
+        arr.removeFirst();
         System.out.println(arr);
 
-        arr.removeElement(4);
-        System.out.println(arr);
     }
 }
