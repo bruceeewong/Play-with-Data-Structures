@@ -1,23 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        Array<Integer> arr = new Array(); // 默认有10个元素
+        ArrayStack<Integer> stack = new ArrayStack<>();
 
-        for (int i = 0; i < 10; i ++) {
-            arr.addLast(i);
+        for (int i = 0; i < 5; i ++) {
+            stack.push(i);
+            System.out.println(stack);
         }
 
-        // 扩容
-        arr.add(1, 100);
-        System.out.println(arr);
-
-        // 缩容
-        arr.removeFirst();
-        System.out.println(arr);
-
-        arr.removeFirst();
-        arr.removeFirst();
-        arr.removeFirst();
-        arr.removeFirst();
-        System.out.println(arr);
+        stack.pop();
+        System.out.println(stack);
     }
 }

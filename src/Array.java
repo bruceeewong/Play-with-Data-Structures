@@ -63,6 +63,14 @@ public class Array<E> {
         return data[index];
     }
 
+    public E getFirst() {
+        return get(0);
+    }
+
+    public E getLast() {
+        return get(size - 1);
+    }
+
     // 赋值函数
     public void set(int index, E e) {
         // 禁止赋值没赋值的部分

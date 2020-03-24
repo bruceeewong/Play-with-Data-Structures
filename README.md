@@ -116,3 +116,22 @@ add(index, e) -> O(n/2) = O(n)    | O(n)
 
 解决方案: 采用更懒惰的方案Lazy： 当 size == capacity / 4 时，才将capacity减半； 同时要防止capacity缩为 0
 
+## 03 栈与队列
+
+栈: 数组的子集，一种后进先出 Last In First Out (LIFO)的结构，只能从一端添加，从同一端取出，这个端称为 `栈顶`。
+
+### 栈的应用
+
+撤销操作Undo: 原理就是用栈存储输入，撤销时最近的输入出栈。
+
+程序调用的系统栈：用栈记录系统调用的中断位置，从而能完成函数嵌套调用。
+
+### 复杂度分析
+
+ArrayStack<E>
+
+- void push(E) -> O(1) 均摊
+- E pop() ->  O(1) 均摊
+- E peek() ->  O(1)
+- int getSize() ->  O(1)
+- boolean isEmpty() ->  O(1)
