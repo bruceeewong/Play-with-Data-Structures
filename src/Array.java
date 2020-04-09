@@ -38,6 +38,7 @@ public class Array<E> {
             resize(2 * data.length);
         }
 
+        // 将要插入的位置后面的元素往后挪
         for (int i = size - 1; i >= index; i--) {
             data[i + 1] = data[i];
         }
@@ -109,6 +110,7 @@ public class Array<E> {
         }
 
         E ret = data[index];
+        // 将要删除的位置后面的元素往前挪一个
         for (int i = index + 1; i < size; i++) {
             data[i - 1] = data[i];
         }

@@ -156,5 +156,64 @@ ArrayStack<E> 基于动态数组的栈
 - 栈里还不为空，说明没匹配完，返回false；
 - 否则，说明匹配成功，返回true
 
+### 3-5 队列
 
+队列 FIFO 先进先出
 
+接口
+```
+public interface Queue<E> {
+    int getSize();
+
+    boolean isEmpty();
+
+    void enqueue(E e);
+
+    E dequeue();
+
+    E getFront();
+}
+```
+
+#### 数组队列
+
+```
+public public class ArrayQueue<E> implements Queue<E> {
+    int getSize(); // 时间复杂度: O(1)
+
+    boolean isEmpty(); // 时间复杂度: O(1)
+
+    void enqueue(E e); // 时间复杂度 O(1) 均摊
+
+    E dequeue(); // 时间复杂度： O(n)
+
+    E getFront(); // 时间复杂度 O(1)
+}
+```
+
+#### 循环队列
+
+基于数组，维护 front 和 tail 指针
+
+front == tail 队列为空
+(tail + 1) % size == front 队列满
+
+因为队列满和队列空条件要区别，所以会浪费一个空间
+
+```
+public class LoopQueue<E> implements Queue<E> {
+    int getSize(); // 时间复杂度: O(1)
+
+    boolean isEmpty(); // 时间复杂度: O(1)
+
+    void enqueue(E e); // 时间复杂度 O(1) 均摊
+
+    E dequeue(); // 时间复杂度： O(1)均摊 // 根据tail指针直接取
+
+    E getFront(); // 时间复杂度 O(1)
+}
+```
+
+#### 数组队列与循环队列
+
+100000次出队操作, 循环队列 26s 数组队列 0.1s
