@@ -239,3 +239,40 @@ class Node {
 ### 设立虚拟头结点
 
 头结点不存储数据，用于指示位置
+
+### 链表中的删除
+
+找到待删除节点的前一个节点， prev
+
+将prev的next指向要删除节点的Next：
+
+```
+target = prev.next;
+prev.next = target.next;
+target.next = null;
+```
+
+### 时间复杂度
+
+添加操作 O(n)
+
+- addLast(e) O(n)
+- addFirst(e) O(1)
+- add(index, e) O(n/2) = O(n)
+
+删除操作 O(n)
+
+- removeLast(e) O(n)
+- removeFirst(e) O(1)
+- remove(index, e) O(n/2) = O(n)
+
+修改操作 O(n)
+
+- set(index, e);
+
+查找操作 O(n)
+
+- get(index)  O(n)
+- contains(e)  O(n)
+
+总结，只对链表头操作，就可以达到 O(1) 复杂度
