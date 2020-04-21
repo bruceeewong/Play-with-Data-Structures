@@ -66,6 +66,7 @@ public class LinkedList<E> {
      * @param index {int}
      */
     public void add(int index, E e) {
+        // 插入范围 [0, size]
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed. Illegal index.");
         }
@@ -80,7 +81,6 @@ public class LinkedList<E> {
 
         size++;
     }
-
 
     /**
      * 链表头添加数据
@@ -112,7 +112,7 @@ public class LinkedList<E> {
      * @return {E}
      */
     public E get(int index) {
-        // 只能取到 0 ~ size - 1
+        // 只能取到 [0, size-1]
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Get failed. Illegal index.");
         }
@@ -132,7 +132,7 @@ public class LinkedList<E> {
     }
 
     public void set(int index, E e) {
-
+        // 范围 [0, size-1]
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Set failed. Illegal index.");
         }
