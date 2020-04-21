@@ -1,6 +1,23 @@
 package bst;
 
 public class BinarySearchTree<E extends Comparable<E>> {
+    public static void main(String[] args) {
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        int[] nums = {5, 3, 6, 8, 4, 2};
+        for (int num: nums) {
+            bst.add(num);
+        }
+        bst.preOrder();
+        System.out.println();
+
+        bst.inOrder();
+        System.out.println();
+
+        bst.postOrder();
+        System.out.println();
+//        System.out.println(bst);
+    }
+
 
     private class Node {
         E e;
@@ -35,6 +52,78 @@ public class BinarySearchTree<E extends Comparable<E>> {
      */
     public void add(E e) {
         root = recursiveAdd(root, e);
+    }
+
+    /**
+     * 查找目标元素是否包含元素e
+     * @param e E
+     * @return boolean
+     */
+    public boolean contains(E e) {
+        return recursiveContains(root, e);
+    }
+
+    /**
+     * 前序遍历
+     */
+    public void preOrder() {
+        recursivePreOrder(root);
+    }
+
+    private void recursivePreOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.println(node.e); // 访问节点
+        recursivePreOrder(node.left); // 遍历左子树
+        recursivePreOrder(node.right); // 遍历右子树
+    }
+
+    /**
+     * 中序遍历
+     */
+    private void inOrder() {
+        recursiveInOrder(root);
+    }
+
+    private void recursiveInOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        recursiveInOrder(node.left);
+        System.out.println(node.e); // 在中间访问节点
+        recursiveInOrder(node.right);
+    }
+
+    /**
+     * 后序遍历
+     */
+    private void postOrder() {
+        recursivePostOrder(root);
+    }
+
+    private void recursivePostOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        recursivePostOrder(node.left);
+        recursivePostOrder(node.right);
+        System.out.println(node.e); // 在中间访问节点
+    }
+
+    private boolean recursiveContains(Node node, E e) {
+        if (node == null) {
+            return false;
+        }
+        if (e.compareTo(node.e) == 0) {
+            return true;
+        } else if (e.compareTo(node.e) < 0) {
+            return recursiveContains(node.left, e);
+        } else { // e.compareTo(node.e) > 0
+            return recursiveContains(node.right, e);
+        }
     }
 
     /**
@@ -86,5 +175,30 @@ public class BinarySearchTree<E extends Comparable<E>> {
         } else {
             recursiveAdd(node.right, e);
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        generateBSTString(root, 0, res);
+        return res.toString();
+    }
+
+    private void generateBSTString(Node node, int depth, StringBuilder res) {
+        if (node == null) {
+            res.append(getDepthString(depth)).append("null\n");
+            return;
+        }
+        res.append(getDepthString(depth)).append(node.e).append("\n");
+        generateBSTString(node.left, depth + 1, res);
+        generateBSTString(node.right, depth + 1, res);
+    }
+
+    private String getDepthString(int depth) {
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < depth; i ++) {
+            res.append("--");
+        }
+        return res.toString();
     }
 }

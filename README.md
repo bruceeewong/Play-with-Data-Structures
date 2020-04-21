@@ -353,7 +353,67 @@ class Node {
 
 ### 插入元素
 
-当
+递归操作：对当前根节点进行插入
+
+如果当前传入节点为null，将传入的值创建新节点，返回。
+否则 如果要插入的值小于当前节点值，递归左子树，返回递归结果
+如果要插入的值大于当前节点值，递归右子树，返回递归结果
+如果相等，什么都不做。
+
+### 遍历操作
+
+就是把所有节点都访问一遍。
+
+递归操作。
+
+### 前序遍历
+
+先访问节点，再访问左子树、右子树。
+
+```
+function traverse(node):
+    if (node == null)
+        return;
+
+    print(node);
+    traverse(node.left);
+    traverse(node.right);
+```
+
+### 中序遍历
+
+先访问左子树，再访问节点、右子树。
+
+**中序遍历的结果：顺序排序**
+
+```
+function traverse(node):
+    if (node == null)
+        return;
+
+    traverse(node.left);
+    print(node);
+    traverse(node.right);
+```
+
+### 后序遍历
+
+先访问左子树，再右子树、访问节点。
+
+**应用：后序遍历为二分搜索数释放内存**
+
+```
+function traverse(node):
+    if (node == null)
+        return;
+
+    traverse(node.left);
+    print(node);
+    traverse(node.right);
+```
+
+
+
 
 
 
