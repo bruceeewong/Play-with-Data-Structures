@@ -514,7 +514,20 @@ log(n) 与 n： n越大, 差距越大
 
 ## 07 映射 Map
 
+- 链表Map
+- 二分搜索树Map
 
+### 时间复杂度分析
 
+|操作|LinkedListMap|BSTMap|
+|:--:|:--:|:--:|
+|增add|O(n)|O(h)|
+|删remove|O(n)|O(h)|
+|改set|O(n)|O(h)|
+|查get|O(n)|O(h)|
+|查contains|O(n)|O(h)|
+|平均|O(logn)|O(n)|
 
+### 有序映射 VS 无序映射
 
+### 多重映射

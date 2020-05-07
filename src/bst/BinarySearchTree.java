@@ -215,7 +215,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
     }
 
     /**
-     * 通过后继节点调整树
+     * 通过前驱节点调整树
      * @param node
      * @return
      */
