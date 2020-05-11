@@ -1,3 +1,5 @@
+package queue;
+
 public interface Queue<E> {
     int getSize();
 

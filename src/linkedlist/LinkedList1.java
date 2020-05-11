@@ -1,3 +1,5 @@
+package linkedlist;
+
 // 带虚拟头结点
 public class LinkedList1<E> {
     public static void main(String[] args) {
@@ -139,7 +141,7 @@ public class LinkedList1<E> {
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append("LinkedList: ");
+        res.append("linkedlist.LinkedList: ");
         Node cur = dummyHead.next;
         while (cur != null) {
             res.append(cur.e).append("->");

@@ -1,3 +1,7 @@
+package queue;
+
+import stack.Stack;
+
 import java.util.Random;
 
 public class Main {
@@ -37,11 +41,11 @@ public class Main {
     public static void main(String[] args) {
 //        int opCount = 10000000;
 
-//        ArrayStack<Integer> arrayStack = new ArrayStack<>();
+//        array.ArrayStack<Integer> arrayStack = new array.ArrayStack<>();
 //        double time1 = testStack(arrayStack, opCount);
-//        System.out.println("ArrayStack, time: " + time1 + " s");
+//        System.out.println("array.ArrayStack, time: " + time1 + " s");
 //
-//        LinkedListStack<Integer> linkedListStack = new LinkedListStack<>();
+//        linkedlist.LinkedListStack<Integer> linkedListStack = new linkedlist.LinkedListStack<>();
 //        double time2 = testStack(linkedListStack, opCount);
 //        System.out.println("linkedListStack, time: " + time2 + " s");
 
@@ -49,11 +53,11 @@ public class Main {
 
         ArrayQueue<Integer> arrayQueue = new ArrayQueue<>();
         double time1 = testQueue(arrayQueue, opCount);
-        System.out.println("ArrayQueue, time: " + time1 + " s");
+        System.out.println("queue.ArrayQueue, time: " + time1 + " s");
 
         LoopQueue<Integer> loopQueue = new LoopQueue<>();
         double time2 = testQueue(loopQueue, opCount);
-        System.out.println("LoopQueue, time: " + time2 + " s");
+        System.out.println("queue.LoopQueue, time: " + time2 + " s");
 
         LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
         double time3 = testQueue(linkedListQueue, opCount);

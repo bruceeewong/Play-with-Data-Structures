@@ -1,3 +1,5 @@
+package queue;
+
 public class LinkedListQueue<E> implements Queue<E> {
     private class Node {
         public E e;
@@ -76,7 +78,7 @@ public class LinkedListQueue<E> implements Queue<E> {
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append("Queue: front ");
+        res.append("queue.Queue: front ");
 
         Node cur = head;
         while (cur != null) {

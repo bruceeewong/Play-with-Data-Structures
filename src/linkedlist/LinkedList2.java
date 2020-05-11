@@ -1,3 +1,5 @@
+package linkedlist;
+
 // 不带虚拟头结点的链表实现
 public class LinkedList2<E> {
     public static void main(String[] args) {

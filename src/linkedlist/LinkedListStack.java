@@ -1,3 +1,7 @@
+package linkedlist;
+
+import stack.Stack;
+
 public class LinkedListStack<E> implements Stack<E> {
     public static void main(String[] args) {
         LinkedListStack<Integer> stack = new LinkedListStack<>();
@@ -42,7 +46,7 @@ public class LinkedListStack<E> implements Stack<E> {
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append("Stack: top ");
+        res.append("stack.Stack: top ");
         res.append(list);
         return res.toString();
     }

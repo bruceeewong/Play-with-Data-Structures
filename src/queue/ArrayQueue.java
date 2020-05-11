@@ -1,3 +1,7 @@
+package queue;
+
+import array.Array;
+
 public class ArrayQueue<E> implements Queue<E> {
 
     private Array<E> array;
@@ -50,7 +54,7 @@ public class ArrayQueue<E> implements Queue<E> {
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append("Queue: ");
+        res.append("queue.Queue: ");
         res.append("front [");
         for (int i = 0; i < array.getSize(); i++) {
             res.append(array.get(i));

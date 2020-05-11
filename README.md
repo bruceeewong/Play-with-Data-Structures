@@ -37,7 +37,7 @@ T = 1 * n * n + 300 * n + 100  O(n^2)
 - 判断是否存在元素
 - 查找元素下标
 - 泛型支持
-    - 外部实例化, ```Array<T> arr = new Array<>();``
+    - 外部实例化, ```array<T> arr = new array<>();``
     - 内部实现 ```E[] data = (E[]) new Object[capacity]```
 - 动态数组：动态开辟空间
     - 创建更大空间的数组，内部data改变引用
@@ -128,7 +128,7 @@ add(index, e) -> O(n/2) = O(n)    | O(n)
 
 ### 复杂度分析
 
-ArrayStack<E> 基于动态数组的栈
+array.ArrayStack<E> 基于动态数组的栈
 
 - void push(E) -> O(1) 均摊
 - E pop() ->  O(1) 均摊
@@ -162,7 +162,7 @@ ArrayStack<E> 基于动态数组的栈
 
 接口
 ```
-public interface Queue<E> {
+public interface queue.Queue<E> {
     int getSize();
 
     boolean isEmpty();
@@ -178,7 +178,7 @@ public interface Queue<E> {
 #### 数组队列
 
 ```
-public public class ArrayQueue<E> implements Queue<E> {
+public public class queue.ArrayQueue<E> implements queue.Queue<E> {
     int getSize(); // 时间复杂度: O(1)
 
     boolean isEmpty(); // 时间复杂度: O(1)
@@ -201,7 +201,7 @@ front == tail 队列为空
 因为队列满和队列空条件要区别，所以会浪费一个空间
 
 ```
-public class LoopQueue<E> implements Queue<E> {
+public class queue.LoopQueue<E> implements queue.Queue<E> {
     int getSize(); // 时间复杂度: O(1)
 
     boolean isEmpty(); // 时间复杂度: O(1)
@@ -531,3 +531,68 @@ log(n) 与 n： n越大, 差距越大
 ### 有序映射 VS 无序映射
 
 ### 多重映射
+
+## 08 堆与优先队列
+
+### 优先队列
+
+出队时返回优先级最大的元素
+
+### 实现
+
+#### 普通线性结构
+
+入队：O(1)
+出队：O(n)
+
+#### 顺序线性结构
+
+入队：O(n)
+出队：O(1)
+
+#### 堆
+
+最坏情况： 
+
+入队：O(logn)
+出队：O(logn)
+
+### 二叉堆（Binary Heap）
+
+二叉堆是一颗完全二叉树，堆中的某个节点总是不（大于/小于）其父节点的值
+
+最大堆、最小堆
+
+#### 完全二叉树
+
+不一定是满二叉树，把元素按层从左到右存放节点，即完全二叉树
+
+#### 用数组存储二叉堆
+
+从下标 1 开始存储，存在以下关系：
+
+```
+parent(i) = i / 2 // 向下取整
+left child(i) = 2 * i
+right child(i) = 2 * i + 1
+```
+
+从下标 0 开始存储，存在以下关系：
+
+```
+parent(i) = (i - 1) / 2 // 向下取整
+left child(i) = 2 * i + 1
+right child(i) = 2 * i + 2
+```
+
+#### 插入节点
+
+以最大二叉堆为例子：
+
+上浮操作：
+
+将插入的位置，与其父节点作比较，若父节点小于插入元素，交换位置，直到上浮到根节点。
+
+下沉操作：
+
+与其子节点中最大一个比较，若当前节点小于其最大子节点，则交换位置，直到叶节点位置。
