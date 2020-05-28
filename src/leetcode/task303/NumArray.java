@@ -1,6 +1,6 @@
 package leetcode.task303;
 
-import Tree.SegmentTree;
+import tree.SegmentTree;
 
 /**
  * 303 区域与检索 - 不可变

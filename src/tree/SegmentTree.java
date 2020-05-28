@@ -1,6 +1,4 @@
-package Tree;
-
-import java.util.Arrays;
+package tree;
 
 public class SegmentTree<E> {
     private E[] tree;
