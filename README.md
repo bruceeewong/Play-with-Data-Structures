@@ -698,16 +698,28 @@ class Node {
 
 将新增的单词拆解成字符，沿着根目录找next的map中是否有该单词，没有的话返回false，有的话顺延到下一个Next.
 
-循环结束，返回节点的isWord
+循环结束，返回节点的 isWord
 
 
+### Trie相关的话题
 
+Trie的删除操作
 
+局限性：空间
 
+压缩字典树 Compressed Trie
 
+Ternary Search Trie：三分搜索树
 
+后缀树：字符串模式识别
 
+子串查询：KMP, Boyer-Moore, Rabin_Karp算法
 
+文件压缩
+
+编译原理
+
+生物科学：DNA
 
 
 
