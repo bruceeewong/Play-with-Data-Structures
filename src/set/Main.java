@@ -1,7 +1,5 @@
 package set;
 
-import bst.BinarySearchTree;
-
 import java.util.ArrayList;
 
 public class Main {

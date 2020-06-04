@@ -1,4 +1,4 @@
-package bst;
+package tree.bst;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -14,9 +14,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
         System.out.println(bst);
         System.out.println(bst.getSize());
 
-//        bst.removeMin();
-//        System.out.println(bst);
-//        System.out.println(bst.getSize());
+//        tree.bst.removeMin();
+//        System.out.println(tree.bst);
+//        System.out.println(tree.bst.getSize());
 
         bst.remove(3);
         System.out.println(bst);
@@ -24,19 +24,19 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
 
 
-//        bst.preOrder();
+//        tree.bst.preOrder();
 //        System.out.println();
 //
-//        bst.preOrderNR();
+//        tree.bst.preOrderNR();
 
-//        bst.levelOrder();
+//        tree.bst.levelOrder();
 
-//        bst.inOrder();
+//        tree.bst.inOrder();
 //        System.out.println();
 //
-//        bst.postOrder();
+//        tree.bst.postOrder();
 //        System.out.println();
-//        System.out.println(bst);
+//        System.out.println(tree.bst);
     }
 
 
