@@ -10,11 +10,17 @@ public class Main {
         BSTMap<String, Integer> bstMap = new BSTMap<>();
         System.out.println("BSTMap cost time: " + testMap(bstMap, filename));
 
-        System.out.println();
+        System.out.println("==================");
 
         LinkedListMap<String, Integer> linkedListMap = new LinkedListMap<>();
         testMap(linkedListMap, filename);
         System.out.println("LinkedListMap cost time: " + testMap(linkedListMap, filename));
+
+        System.out.println("==================");
+
+        AVLMap<String, Integer> avlMap = new AVLMap<>();
+        testMap(avlMap, filename);
+        System.out.println("avlMap cost time: " + testMap(avlMap, filename));
     }
 
     private static double testMap(Map<String, Integer> map, String filename) {
@@ -40,29 +46,5 @@ public class Main {
 
         long endTime = System.nanoTime();
         return (endTime - startTime) / 100000000.0;
-    }
-
-    public static void testBSTMap() {
-        System.out.println("BSTMap Test: pride and prejudice");
-
-        ArrayList<String> words = new ArrayList<>();
-        String filename = "src/map/pride-and-prejudice.txt";
-        if (FileOperation.readFile(filename, words)) {
-            System.out.println("Total words: " + words.size());
-
-            BSTMap<String, Integer> map = new BSTMap<>();
-            for (String word : words) {
-                if (map.contains(word)) {
-                    map.set(word, map.get(word) + 1); // 词频统计
-                } else {
-                    map.add(word, 1);
-                }
-            }
-
-            System.out.println("Total different words: " + map.getSize());
-            System.out.println("Frequency of PRIDE: " + map.get("pride"));
-            System.out.println("Frequency of PREJUDICE: " + map.get("prejudice"));
-
-        }
     }
 }

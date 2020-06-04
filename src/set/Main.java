@@ -34,5 +34,11 @@ public class Main {
         double time2 = testSet(linkedListSet, filename);
         System.out.println("LinkedListSet used time: " + time2);
 
+
+        System.out.println();
+
+        AVLSet<String> avlSet = new AVLSet<>();
+        double time3 = testSet(avlSet, filename);
+        System.out.println("AVLSet used time: " + time3);
     }
 }
