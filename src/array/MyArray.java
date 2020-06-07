@@ -1,16 +1,16 @@
 package array;
 
-public class Array2<E> implements IArray<E> {
+public class MyArray<E> implements IArray<E> {
     private static final int defaultCapacity = 10;
     private E[] data;
     private int size;
 
-    public Array2(int capacity) {
+    public MyArray(int capacity) {
         data = (E[]) (new Object[capacity]);
         size = 0;
     }
 
-    public Array2() {
+    public MyArray() {
         this(defaultCapacity);
     }
 

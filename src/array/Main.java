@@ -2,7 +2,7 @@ package array;
 
 public class Main {
     public static void main(String[] args) {
-        Array2<Integer> arr = new Array2<>();
+        MyArray<Integer> arr = new MyArray<>();
         for(int i = 0 ; i < 10 ; i ++)
             arr.addLast(i);
         System.out.println(arr);
