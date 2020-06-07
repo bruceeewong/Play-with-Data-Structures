@@ -191,7 +191,13 @@ public public class queue.ArrayQueue<E> implements queue.Queue<E> {
 }
 ```
 
+数组队列出队的问题：
+
+删除队首的元素，元素前移，时间复杂度为O(n)
+
 #### 循环队列
+
+解决出队复杂度为 O(n) 的问题, 由于删除队首后,仍保持着队列的性质. 用循环队列解决, 使得出队的时间复杂度为 O(1)
 
 基于数组，维护 front 和 tail 指针
 
@@ -208,7 +214,7 @@ public class queue.LoopQueue<E> implements queue.Queue<E> {
 
     void enqueue(E e); // 时间复杂度 O(1) 均摊
 
-    E dequeue(); // 时间复杂度： O(1)均摊 // 根据tail指针直接取
+    E dequeue(); // 时间复杂度： O(1)均摊 // 根据 front 指针直接取
 
     E getFront(); // 时间复杂度 O(1)
 }
