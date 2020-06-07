@@ -1,6 +1,6 @@
 package array;
 
-public class Main {
+public class TestMyArray {
     public static void main(String[] args) {
         MyArray<Integer> arr = new MyArray<>();
         for(int i = 0 ; i < 10 ; i ++)
