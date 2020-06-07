@@ -1,5 +1,6 @@
 package map;
 
+import hashtable.HashTable;
 import set.LinkedList;
 
 import java.util.ArrayList;
@@ -21,6 +22,12 @@ public class Main {
         AVLMap<String, Integer> avlMap = new AVLMap<>();
         testMap(avlMap, filename);
         System.out.println("avlMap cost time: " + testMap(avlMap, filename));
+
+        System.out.println("==================");
+        HashTable<String, Integer> hashMap = new HashTable<>(131071);
+        testMap(hashMap, filename);
+        System.out.println("HashTable cost time: " + testMap(hashMap, filename));
+
     }
 
     private static double testMap(Map<String, Integer> map, String filename) {
