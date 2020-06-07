@@ -24,7 +24,7 @@ public class Main {
         System.out.println("avlMap cost time: " + testMap(avlMap, filename));
 
         System.out.println("==================");
-        HashTable<String, Integer> hashMap = new HashTable<>(131071);
+        HashTable<String, Integer> hashMap = new HashTable<>();
         testMap(hashMap, filename);
         System.out.println("HashTable cost time: " + testMap(hashMap, filename));
 
