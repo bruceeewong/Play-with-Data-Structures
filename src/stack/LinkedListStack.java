@@ -1,17 +1,8 @@
-package linkedlist;
+package stack;
 
-import stack.Stack;
+import linkedlist.LinkedList;
 
-public class LinkedListStack<E> implements Stack<E> {
-    public static void main(String[] args) {
-        LinkedListStack<Integer> stack = new LinkedListStack<>();
-        for (int i = 0; i < 5; i++) {
-            stack.push(i);
-            System.out.println(stack);
-        }
-        stack.pop();
-        System.out.println(stack);
-    }
+public class LinkedListStack<E> implements IStack<E> {
     private LinkedList<E> list;
 
     public LinkedListStack() {

@@ -1,9 +1,14 @@
 package linkedlist;
 
-public class Main {
+public class TestLinkedList {
     public static void main(String[] args) {
         MyLinkedList1<Integer> myLinkedList1 = new MyLinkedList1<>();
         testLinkedList(myLinkedList1);
+
+        System.out.println("==========================");
+
+        MyLinkedList2<Integer> myLinkedList2 = new MyLinkedList2<>();
+        testLinkedList(myLinkedList2);
     }
 
     private static void testLinkedList(ILinkedList<Integer> linkedList) {
@@ -12,15 +17,21 @@ public class Main {
             System.out.println(linkedList);
         }
         linkedList.add(4, 666);
-        System.out.println(linkedList);
+        print(linkedList);
 
         linkedList.remove(4);
-        System.out.println(linkedList);
+        print(linkedList);
 
         linkedList.removeFirst();
-        System.out.println(linkedList);
+        print(linkedList);
 
         linkedList.removeLast();
+        print(linkedList);
+    }
+
+    private static void print(ILinkedList<Integer> linkedList) {
         System.out.println(linkedList);
+        System.out.println("size: " + linkedList.getSize());
+
     }
 }

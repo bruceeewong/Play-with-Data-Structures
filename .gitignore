@@ -39,3 +39,6 @@ text-contents/
 *.pdf
 *.PDF
 *.key
+
+node_modules
+package-lock.json

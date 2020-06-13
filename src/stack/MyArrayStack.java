@@ -2,7 +2,7 @@ package stack;
 
 import array.MyArray;
 
-public class MyArrayStack<E> implements Stack<E> {
+public class MyArrayStack<E> implements IStack<E> {
     private MyArray<E> data;
 
     public MyArrayStack(int capacity) {

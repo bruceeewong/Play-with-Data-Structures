@@ -1,6 +1,6 @@
 package stack;
 
-public interface Stack<E> {
+public interface IStack<E> {
     int getSize();
     boolean isEmpty();
     void push(E e);

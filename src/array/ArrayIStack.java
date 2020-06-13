@@ -1,15 +1,15 @@
 package array;
-import stack.Stack;
+import stack.IStack;
 
-public class ArrayStack<E> implements Stack<E> {
+public class ArrayIStack<E> implements IStack<E> {
 
     Array<E> array;
 
-    public ArrayStack(int capacity) {
+    public ArrayIStack(int capacity) {
         array = new Array<>(capacity);
     }
 
-    public ArrayStack() {
+    public ArrayIStack() {
         array = new Array<>();
     }
 

@@ -1,12 +1,12 @@
 package queue;
 
-import stack.Stack;
+import stack.IStack;
 
 import java.util.Random;
 
 public class Main {
 
-    private static double testStack(Stack<Integer> stack, int opCount) {
+    private static double testStack(IStack<Integer> stack, int opCount) {
         long startTime = System.nanoTime();
 
         Random random = new Random();
@@ -45,7 +45,7 @@ public class Main {
 //        double time1 = testStack(arrayStack, opCount);
 //        System.out.println("array.ArrayStack, time: " + time1 + " s");
 //
-//        linkedlist.LinkedListStack<Integer> linkedListStack = new linkedlist.LinkedListStack<>();
+//        stack.LinkedListStack<Integer> linkedListStack = new stack.LinkedListStack<>();
 //        double time2 = testStack(linkedListStack, opCount);
 //        System.out.println("linkedListStack, time: " + time2 + " s");
 
