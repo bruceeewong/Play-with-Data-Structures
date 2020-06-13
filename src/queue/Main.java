@@ -22,7 +22,7 @@ public class Main {
         return (endTime - startTime) / 1000000000.0;
     }
 
-    private static double testQueue(Queue<Integer> q, int opCount) {
+    private static double testQueue(IQueue<Integer> q, int opCount) {
         long startTime = System.nanoTime();
 
         Random random = new Random();

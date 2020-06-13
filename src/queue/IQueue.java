@@ -1,6 +1,6 @@
 package queue;
 
-public interface Queue<E> {
+public interface IQueue<E> {
     int getSize();
 
     boolean isEmpty();

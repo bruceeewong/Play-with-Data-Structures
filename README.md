@@ -162,7 +162,7 @@ array.ArrayIStack<E> 基于动态数组的栈
 
 接口
 ```
-public interface queue.Queue<E> {
+public interface queue.IQueue<E> {
     int getSize();
 
     boolean isEmpty();
@@ -178,7 +178,7 @@ public interface queue.Queue<E> {
 #### 数组队列
 
 ```
-public public class queue.ArrayQueue<E> implements queue.Queue<E> {
+public public class queue.ArrayQueue<E> implements queue.IQueue<E> {
     int getSize(); // 时间复杂度: O(1)
 
     boolean isEmpty(); // 时间复杂度: O(1)
@@ -207,7 +207,7 @@ public public class queue.ArrayQueue<E> implements queue.Queue<E> {
 因为队列满和队列空条件要区别，所以会浪费一个空间
 
 ```
-public class queue.LoopQueue<E> implements queue.Queue<E> {
+public class queue.LoopQueue<E> implements queue.IQueue<E> {
     int getSize(); // 时间复杂度: O(1)
 
     boolean isEmpty(); // 时间复杂度: O(1)

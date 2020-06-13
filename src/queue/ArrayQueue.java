@@ -2,7 +2,7 @@ package queue;
 
 import array.Array;
 
-public class ArrayQueue<E> implements Queue<E> {
+public class ArrayQueue<E> implements IQueue<E> {
 
     private Array<E> array;
 

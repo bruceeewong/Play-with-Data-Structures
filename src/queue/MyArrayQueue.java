@@ -2,7 +2,7 @@ package queue;
 
 import array.MyArray;
 
-public class MyArrayQueue<E> implements Queue<E> {
+public class MyArrayQueue<E> implements IQueue<E> {
     private MyArray<E> data;
 
     public MyArrayQueue(int capacity) { data = new MyArray<>(capacity); }

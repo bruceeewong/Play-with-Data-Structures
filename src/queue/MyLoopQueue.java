@@ -1,6 +1,6 @@
 package queue;
 
-public class MyLoopQueue<E> implements Queue<E> {
+public class MyLoopQueue<E> implements IQueue<E> {
     private E[] data;
     private int size;
     private int front, tail;

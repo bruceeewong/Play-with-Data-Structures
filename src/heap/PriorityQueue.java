@@ -1,8 +1,8 @@
 package heap;
 
-import queue.Queue;
+import queue.IQueue;
 
-public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
+public class PriorityQueue<E extends Comparable<E>> implements IQueue<E> {
     private MaxHeap<E> maxHeap;
 
     public PriorityQueue() {

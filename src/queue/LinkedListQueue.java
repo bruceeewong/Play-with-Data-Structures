@@ -1,6 +1,6 @@
 package queue;
 
-public class LinkedListQueue<E> implements Queue<E> {
+public class LinkedListQueue<E> implements IQueue<E> {
     private class Node {
         public E e;
         public Node next;

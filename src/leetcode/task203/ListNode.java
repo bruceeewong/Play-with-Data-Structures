@@ -8,6 +8,10 @@ public class ListNode {
         val = x;
     }
 
+    /**
+     * 使用数组创建一个单链表
+     * @param arr　
+     */
     public ListNode(int[] arr) {
         if (arr == null || arr.length == 0) {
             throw new IllegalArgumentException("arr can not be empty");
