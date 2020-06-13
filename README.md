@@ -201,8 +201,8 @@ public public class queue.ArrayQueue<E> implements queue.Queue<E> {
 
 基于数组，维护 front 和 tail 指针
 
-front == tail 队列为空
-(tail + 1) % size == front 队列满
+- front == tail 队列为空
+- (tail + 1) % size == front 队列满
 
 因为队列满和队列空条件要区别，所以会浪费一个空间
 
@@ -234,6 +234,8 @@ class Node {
     Node next;
 }
 ```
+
+### 链表的新增数据
 
 - 从链表头部添加数据
 - 在链表中间添加元素: 关键找到要添加节点的前一个节点，顺序很重要
