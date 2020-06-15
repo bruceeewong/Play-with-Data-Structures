@@ -1,7 +1,10 @@
 package tree;
 
+import array.Array;
+
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class MyBST<E extends Comparable<E>> {
     public static void main(String[] args) {
@@ -16,6 +19,10 @@ public class MyBST<E extends Comparable<E>> {
 
         System.out.println("preOrder");
         bst.preOrder();
+        System.out.println();
+
+        System.out.println("preOrder without recursive");
+        bst.preOrderNonRecursive();
         System.out.println();
 
         System.out.println("inOrder");
@@ -114,6 +121,29 @@ public class MyBST<E extends Comparable<E>> {
         System.out.println(node.e);  // 访问节点
         preOrder(node.left);  // 遍历左子树
         preOrder(node.right);  // 遍历右子树
+    }
+
+    /**
+     * 前序遍历非递归实现
+     * 思路：利用栈辅助遍历
+     */
+    public void preOrderNonRecursive() {
+        if (root == null) {
+            return;
+        }
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()) {
+            Node node = stack.pop();
+            System.out.println(node.e);
+
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
     }
 
     /**
