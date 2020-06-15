@@ -7,13 +7,13 @@ public class Sum {
     }
 
     public static int sum(int[] arr) {
-        return getSum(arr, 0);
+        return sum(arr, 0);
     }
 
-    private static int getSum(int[] arr, int start) {
+    private static int sum(int[] arr, int start) {
         if (start == arr.length) {
-            return 0;
+            return 0; // 最小问题
         }
-        return arr[start] + getSum(arr, start + 1);
+        return arr[start] + sum(arr, start + 1); // 转换更小问题的逻辑
     }
 }
