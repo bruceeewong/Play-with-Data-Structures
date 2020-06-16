@@ -14,28 +14,45 @@ public class MyBST<E extends Comparable<E>> {
             bst.add(num);
         }
         System.out.println(bst);
-        System.out.println("size: " + bst.getSize());
-        System.out.println();
+        System.out.println("size: " + bst.getSize() + "\n");
 
-        System.out.println("preOrder");
-        bst.preOrder();
-        System.out.println();
+//        System.out.println("preOrder");
+//        bst.preOrder();
+//        System.out.println();
+//
+//        System.out.println("preOrder without recursive");
+//        bst.preOrderNonRecursive();
+//        System.out.println();
+//
+//        System.out.println("inOrder");
+//        bst.inOrder();
+//        System.out.println();
+//
+//        System.out.println("postOrder");
+//        bst.postOrder();
+//        System.out.println();
+//
+//        System.out.println("levelOrder");
+//        bst.levelOrder();
+//        System.out.println();
 
-        System.out.println("preOrder without recursive");
-        bst.preOrderNonRecursive();
-        System.out.println();
+//        System.out.println("remove min");
+//        bst.removeMin();
+//        System.out.println(bst);
+//        System.out.println("size: " + bst.getSize() + "\n");
+//
+//        System.out.println("remove 3");
+//        bst.remove(3);
+//        System.out.println(bst);
+//        System.out.println("size: " + bst.getSize() + "\n");
+//
+//        System.out.println("remove 300");
+//        bst.remove(300);
+//        System.out.println(bst);
+//        System.out.println("size: " + bst.getSize() + "\n");
 
-        System.out.println("inOrder");
-        bst.inOrder();
-        System.out.println();
-
-        System.out.println("postOrder");
-        bst.postOrder();
-        System.out.println();
-
-        System.out.println("levelOrder");
-        bst.levelOrder();
-        System.out.println();
+        System.out.println("contains 8?: " + bst.contains(8));
+        System.out.println("contains 300?: " + bst.contains(300));
     }
 
     private class Node {
@@ -71,6 +88,7 @@ public class MyBST<E extends Comparable<E>> {
 
     /**
      * 插入元素
+     *
      * @param e
      * @return
      */
@@ -80,6 +98,7 @@ public class MyBST<E extends Comparable<E>> {
 
     /**
      * 递归插入元素
+     *
      * @param node
      * @param e
      * @return
@@ -100,6 +119,113 @@ public class MyBST<E extends Comparable<E>> {
         return node;
     }
 
+    public void remove(E e) {
+        root = remove(root, e);
+    }
+
+    /**
+     * 返回递归删除值为 e 的节点后的节点
+     * 如果未找到相应值的节点，则不做操作
+     *
+     * @param node
+     * @param e
+     * @return
+     */
+    private Node remove(Node node, E e) {
+        if (node == null) {
+            return null;
+        }
+
+        if (e.compareTo(node.e) < 0) {
+            node.left = remove(node.left, e);
+            return node;
+        } else if (e.compareTo(node.e) > 0) {
+            node.right = remove(node.right, e);
+            return node;
+        } else {
+            // e.compareTo(node.e) == 0
+            if (node.left == null) {
+                Node rightNode = node.right;
+                node.right = null;
+                size--;
+                return rightNode;
+            } else if (node.right == null) {
+                Node leftNode = node.left;
+                node.left = null;
+                size--;
+                return leftNode;
+            } else {
+                // 采取后继节点法, 获取右子树的最小节点，
+                Node successor = getMin(node.right);
+                successor.right = removeMin(node.right);  // 此处发生了一次size --
+                successor.left = node.left;
+
+                // 切断与当前节点的连接
+                node.left = node.right = null;
+                return successor;
+            }
+        }
+    }
+
+    public E getMin() {
+        return (getMin(root)).e;
+    }
+
+    private Node getMin(Node node) {
+        if (node == null) {
+            return null;
+        }
+        if (node.left == null) {
+            return node;
+        }
+        return getMin(node.left);
+    }
+
+    /**
+     * 删除当前树的最小节点
+     *
+     * @return
+     */
+    public E removeMin() {
+        E min = getMin();
+        root = removeMin(root);
+        return min;
+    }
+
+    // 返回删除了当前树中最小节点后的节点
+    private Node removeMin(Node node) {
+        if (node == null) {
+            return null;
+        }
+        if (node.left == null) {
+            // 此时最小节点就是当前的节点
+            // 取出当前节点的右节点，解除引用后返回右节点
+            Node rightNode = node.right;
+            node.right = null;
+            size--;
+            return rightNode;
+        }
+        // 否则，递归删除当前节点的左子树
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    public boolean contains(E e) {
+        return contains(root, e);
+    }
+
+    private boolean contains(Node node, E e) {
+        if (node == null) {
+            return false;
+        }
+        if (e.compareTo(node.e) == 0) {
+            return true;
+        } else if (e.compareTo(node.e) < 0) {
+            return contains(node.left, e);
+        } else {// e.compareTo(node.e) > 0
+            return contains(node.right, e);
+        }
+    }
 
     /**
      * 前序遍历
@@ -112,6 +238,7 @@ public class MyBST<E extends Comparable<E>> {
 
     /**
      * 前序遍历：先访问节点，再访问左子树、右子树。
+     *
      * @param node
      */
     private void preOrder(Node node) {
@@ -133,7 +260,7 @@ public class MyBST<E extends Comparable<E>> {
         }
         Stack<Node> stack = new Stack<>();
         stack.push(root);
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             Node node = stack.pop();
             System.out.println(node.e);
 
@@ -157,6 +284,7 @@ public class MyBST<E extends Comparable<E>> {
 
     /**
      * 中序遍历：先访问左子树，再访问节点、右子树。
+     *
      * @param node
      */
     private void inOrder(Node node) {
@@ -179,6 +307,7 @@ public class MyBST<E extends Comparable<E>> {
 
     /**
      * 后序遍历：先访问左子树，再右子树、访问节点。
+     *
      * @param node
      */
     private void postOrder(Node node) {
@@ -201,7 +330,7 @@ public class MyBST<E extends Comparable<E>> {
         }
         Queue<Node> q = new LinkedList<>();
         q.add(root);
-        while(!q.isEmpty()) {
+        while (!q.isEmpty()) {
             Node node = q.remove();
             System.out.println(node.e);
 

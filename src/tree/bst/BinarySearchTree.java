@@ -253,6 +253,19 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return recursiveContains(root, e);
     }
 
+    private boolean recursiveContains(Node node, E e) {
+        if (node == null) {
+            return false;
+        }
+        if (e.compareTo(node.e) == 0) {
+            return true;
+        } else if (e.compareTo(node.e) < 0) {
+            return recursiveContains(node.left, e);
+        } else { // e.compareTo(node.e) > 0
+            return recursiveContains(node.right, e);
+        }
+    }
+
     /**
      * 前序遍历
      */
@@ -349,19 +362,6 @@ public class BinarySearchTree<E extends Comparable<E>> {
             if (node.right != null) {
                 q.add(node.right);
             }
-        }
-    }
-
-    private boolean recursiveContains(Node node, E e) {
-        if (node == null) {
-            return false;
-        }
-        if (e.compareTo(node.e) == 0) {
-            return true;
-        } else if (e.compareTo(node.e) < 0) {
-            return recursiveContains(node.left, e);
-        } else { // e.compareTo(node.e) > 0
-            return recursiveContains(node.right, e);
         }
     }
 
